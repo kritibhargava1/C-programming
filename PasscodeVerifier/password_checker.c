@@ -8,9 +8,6 @@
 /* Returns true if the length of PASSWORD is at least 10, false otherwise */
 bool check_length(const char *password) {
     return strlen(password) >= 10;
-    /*int length = strlen(password);
-    bool meets_len_req = (length >= 10);
-    return meets_len_req;*/
 }
 
 /* Returns true if PASSWORD contains at least one upper case letter, false otherwise */
@@ -23,19 +20,6 @@ bool check_upper(const char *password) {
     }
     return false;
 }
-/*
-bool check_upper(const char *password) {
-    while (*password != '\0') {
-
-        bool is_in_range = check_range(*password, 'A', 'Z');
-        if (is_in_range) {
-            return true;
-        }
-        ++password;
-    }
-    return false;
-}
-*/
 
 /* Returns true if PASSWORD contains at least one lower case letter, false otherwise*/
 bool check_lower(const char *password) {
@@ -43,11 +27,6 @@ bool check_lower(const char *password) {
         if (islower(*password)){
             return true;
         }
-        /*
-        bool is_in_range = check_range(*password, 'a', 'z');
-        if (is_in_range) {
-            return true;
-        }*/
         ++password;
     }
     return false;
@@ -68,10 +47,6 @@ bool check_number(const char *password) {
         if (isdigit(*password)){
             return true;
         }
-        /*
-        if (check_range(*password, '0', '9')) {
-            return true;
-        }*/
         ++password;
     }
     return false;
@@ -79,10 +54,7 @@ bool check_number(const char *password) {
 
 /* Returns true if the person's first and last name are NOT in the password, false otherwise */
 bool check_name(const char *first_name, const char *last_name, const char *password) {
-    /* Type "man strstr" in your terminal to learn what strstr does!
-        To exit the man pages, press 'q' */
-    /* Hint: a NULL pointer will evaluate to False in a logical expression while a non-NULL pointer
-        will evaluate to True */
+   
     const char *first = strstr(password, first_name);
     const char *last = strstr(password, last_name);
     return (!first && !last);
